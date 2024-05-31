@@ -28,6 +28,27 @@ public class UserDao {
 	}
 	
 	
+	public boolean addUser(User user) {
+	    String query = "INSERT INTO user(firstName, lastName, username, email, password) VALUES (?, ?, ?, ?, ?)";
+	    try (Connection connection = ConnectionPool.getConnection();
+	         PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+
+	        preparedStatement.setString(1, user.getFirstName());
+	        preparedStatement.setString(2, user.getLastName());
+	        preparedStatement.setString(3, user.getUsername());
+	        preparedStatement.setString(4, user.getEmail());
+	        preparedStatement.setString(5, user.getPassword());
+
+	        int rows = preparedStatement.executeUpdate();
+
+	        return rows > 0;
+
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	        return false;
+	    }
+	}
 		
 
 }
+
