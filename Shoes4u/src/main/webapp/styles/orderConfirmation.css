@@ -1,0 +1,27 @@
+/* styles/orderConfirmation.css */
+.confirmation-container {
+    width: 50%;
+    margin: auto;
+    background: #fff;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.confirmation-container p {
+    font-size: 18px;
+}
+
+.btn-back-home {
+    padding: 10px 20px;
+    color: #fff;
+    background-color: #007bff;
+    text-decoration: none;
+    border-radius: 5px;
+    display: inline-block;
+    margin-top: 20px;
+}
+
+.btn-back-home:hover {
+    background-color: #0056b3;
+}

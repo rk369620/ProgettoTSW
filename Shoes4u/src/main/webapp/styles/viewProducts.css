@@ -1,0 +1,74 @@
+/* viewProducts.css */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f2f5f8;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    font-size: 32px;
+    margin-bottom: 20px;
+    color: #333;
+    text-align: center;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+    vertical-align: middle; /* Ensure the content is vertically aligned */
+}
+
+th {
+    background-color: #1E90FF;
+    color: white;
+}
+
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+tr:hover {
+    background-color: #f1f1f1;
+}
+
+.product-image {
+    width: 100px; /* Ensure the images have a fixed width */
+    height: auto; /* Maintain the aspect ratio */
+    border-radius: 8px;
+    display: block; /* Ensure the images are displayed as block elements */
+    margin: 0 auto; /* Center the images horizontally */
+}
+
+a {
+    text-decoration: none;
+    color: #1E90FF;
+    padding: 6px 12px;
+    border: 2px solid #1E90FF;
+    border-radius: 8px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+a:hover {
+    background-color: #1E90FF;
+    color: white;
+}

@@ -5,15 +5,18 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Login</title>
-<link rel="stylesheet" href="css/login.css">
-<link rel="stylesheet" href="css/header.css">
-<link rel="stylesheet" href="css/footer.css">
+<link rel="stylesheet" href="styles/login.css">
+<link rel="stylesheet" href="styles/header.css">
+<link rel="stylesheet" href="styles/footer.css">
 
-<script src="js/login.js"></script>
+
+<script src="scripts/login.js"></script>
+  <script src="scripts/login.js"></script>
+
 </head>
 <body>
+    <%@ include file="fragments/header.jsp" %>
 
-<%@include file="header.jsp" %>
 
 <div class="container">
     <h1>Login</h1>
@@ -49,7 +52,7 @@
         } 
     %>
     
-  <%@ include file="footer.jsp" %>
+    <%@ include file="fragments/footer.jsp" %>
   
 </div>
 </body>

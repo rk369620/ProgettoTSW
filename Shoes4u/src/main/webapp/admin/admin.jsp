@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <%
-    HttpSession s= request.getSession(false);
-    if (s == null || !"admin".equals(s.getAttribute("username"))) {
+    HttpSession ss= request.getSession(false);
+    if (ss == null || !"admin".equals(ss.getAttribute("username"))) {
         response.sendRedirect("login.jsp");
         return;
     }
@@ -11,15 +11,13 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Admin Dashboard</title>
-<link rel="stylesheet" href="css/adminHeader.css">
-
-<link rel="stylesheet" href="css/admin.css">
-<link rel="stylesheet" href="css/footer.css">
+<link rel="stylesheet" href="<%= request.getContextPath() %>/styles/header.css">
+<link rel="stylesheet" href="<%= request.getContextPath()%> /styles/admin.css">
+<link rel="stylesheet" href="<%= request.getContextPath()%>/styles/footer.css">
 </head>
 <body>
-<%@ include file="adminHeader.jsp" %>
 
-
+<%@ include file="../fragments/header.jsp" %>
 
 <div class="container">
     <h1>Welcome Admin</h1>
@@ -29,6 +27,6 @@
         <li><a href="viewOrders.jsp">View Orders</a></li>
     </ul>
 </div>
-<%@ include file="footer.jsp" %>
+<%@ include file="../fragments/footer.jsp" %>
 </body>
 </html>

@@ -1,4 +1,4 @@
-/* Stili per l'header */
+
 header {
     display: flex;
     justify-content: space-between;
@@ -11,10 +11,19 @@ header {
     z-index: 1000;
 }
 
+.logo {
+    flex: 1;
+}
+
 .logo h1 {
     margin: 0;
     font-size: 1.5em;
     color: white;
+}
+
+nav {
+    flex: 2;
+    text-align: right;
 }
 
 nav ul {
@@ -22,6 +31,7 @@ nav ul {
     margin: 0;
     padding: 0;
     display: flex;
+    justify-content: flex-end;
     align-items: center;
 }
 

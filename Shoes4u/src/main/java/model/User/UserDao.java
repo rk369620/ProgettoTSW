@@ -1,9 +1,11 @@
-package model;
+package model.User;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+
+import model.ConnectionPool;
 
 public class UserDao {
 	
@@ -26,7 +28,6 @@ public class UserDao {
 				return false;
 			}
 	}
-	
 	
 	public boolean addUser(User user) {
 	    String query = "INSERT INTO user(firstName, lastName, username, email, password) VALUES (?, ?, ?, ?, ?)";
@@ -51,4 +52,3 @@ public class UserDao {
 		
 
 }
-

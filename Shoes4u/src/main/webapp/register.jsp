@@ -5,15 +5,15 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Register</title>
-<link rel="stylesheet" href="css/login.css">
-<link rel="stylesheet" href="css/header.css">
-<link rel="stylesheet" href="css/footer.css">
+<link rel="stylesheet" href="styles/login.css">
+<link rel="stylesheet" href="styles/header.css">
+<link rel="stylesheet" href="styles/footer.css">
 
-<script src="js/registration.js"></script>
+<script src="scripts/registration.js"></script>
 </head>
 <body>
 
-<%@include file="header.jsp" %>
+<%@include file="fragments/header.jsp" %>
 
 <div class="container">
     <h1>Register</h1>
@@ -52,7 +52,7 @@
     
     <p><a href="index.jsp">Back to Home</a></p>
     
-    <%@ include file="footer.jsp" %>
+    <%@ include file="fragments/footer.jsp" %>
     
 </div>
 </body>

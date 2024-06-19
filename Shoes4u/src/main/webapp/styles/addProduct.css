@@ -1,0 +1,29 @@
+form {
+    width: 500px; /* Larghezza del modulo */
+    margin: 50px auto; /* Centra il modulo orizzontalmente con un margine sopra e sotto */
+    padding: 20px; /* Spaziatura interna del modulo */
+    border: 1px solid #ccc; /* Bordo intorno al modulo */
+    border-radius: 5px; /* Angoli arrotondati */
+    background-color: #f9f9f9; /* Colore di sfondo grigio chiaro */
+}
+
+label {
+    display: block; /* Metti ogni etichetta su una riga separata */
+    margin-bottom: 5px; /* Spaziatura tra le etichette */
+}
+
+input[type="text"],
+input[type="file"],
+button[type="submit"] {
+    width: 100%; /* Larghezza del 100% per riempire il contenitore */
+    padding: 8px; /* Spaziatura interna per gli input e il pulsante */
+    margin-bottom: 10px; /* Spaziatura inferiore per gli input e il pulsante */
+}
+
+button[type="submit"] {
+    background-color: #007bff; /* Colore di sfondo del pulsante */
+    color: #fff; /* Colore del testo del pulsante */
+    border: none; /* Nessun bordo */
+    border-radius: 5px; /* Angoli arrotondati */
+    cursor: pointer; /* Mostra il cursore a forma di mano al passaggio del mouse */
+}

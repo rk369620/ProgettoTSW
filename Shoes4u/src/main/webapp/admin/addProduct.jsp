@@ -1,21 +1,27 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-
+<%
+    HttpSession ss= request.getSession(false);
+    if (ss == null || !"admin".equals(ss.getAttribute("username"))) {
+        response.sendRedirect("login.jsp");
+        return;
+    }
+%>
 <!DOCTYPE html>
 <html>
 <head>
+
     <meta charset="UTF-8">
     <title>Add Product</title>
-<link rel="stylesheet" href="css/adminHeader.css">
-<link rel="stylesheet" href="css/addProduct.css">
+<link rel="stylesheet" href="<%= request.getContextPath()%>/styles/addProduct.css">
 
-<link rel="stylesheet" href="css/footer.css">
+<link rel="stylesheet" href="<%= request.getContextPath()%>/styles/footer.css">
 
-<script src="js/login.js"></script>
+<script src="scripts/login.js"></script>
 </head>
 <body>
-    <%@ include file="adminHeader.jsp" %>
+<%@ include file="../fragments/header.jsp" %>
     <center><h1>Add Product</h1></center>
-    <form action="AddProductServlet" method="post" enctype="multipart/form-data">
+    <form action="<%= request.getContextPath()%>/AddProductServlet" method="post" enctype="multipart/form-data">
         <label for="productName">Product Name:</label>
         <input type="text" id="productName" name="productName"><br>
         
@@ -31,16 +37,13 @@
         <label for="category">Category:</label>
         <input type="text" id="category" name="category"><br>
         
-        <label for="userType">User Type:</label>
-        <input type="text" id="userType" name="userType"><br>
         
-        <!-- Image Upload Field -->
         <label for="image">Product Image:</label>
         <input type="file" id="image" name="image"><br>
         
         <button type="submit">Add Product</button>
     </form>
    
-    <%@ include file="footer.jsp" %>
+<%@ include file="../fragments/footer.jsp" %>
 </body>
 </html>

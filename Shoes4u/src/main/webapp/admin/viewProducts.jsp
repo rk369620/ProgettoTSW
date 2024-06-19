@@ -1,14 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <%
-    HttpSession s= request.getSession(false);
-    if (s == null || !"admin".equals(s.getAttribute("username"))) {
+    HttpSession ss= request.getSession(false);
+    if (ss == null || !"admin".equals(ss.getAttribute("username"))) {
         response.sendRedirect("login.jsp");
         return;
     }
 %>
 <%@ page import="java.util.List" %>
-<%@ page import="model.Product" %>
-<%@ page import="model.ProductDao" %>
+<%@ page import="model.Product.Product" %>
+<%@ page import="model.Product.ProductDao" %>
 <%
     ProductDao productDao = new ProductDao();
     List<Product> productList = productDao.getAllProducts();
@@ -18,12 +18,13 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>View Products</title>
-<link rel="stylesheet" href="css/adminHeader.css">
-<link rel="stylesheet" href="css/viewProducts.css">
-<link rel="stylesheet" href="css/footer.css">
+
+<link rel="stylesheet" href="<%= request.getContextPath()%>/styles/viewProducts.css">
+<link rel="stylesheet" href="<%= request.getContextPath()%>/styles/footer.css">
 </head>
 <body>
-<%@ include file="adminHeader.jsp" %>
+
+<%@ include file="../fragments/header.jsp" %>
 <div class="container">
     <h1>View Products</h1>
    
@@ -36,24 +37,24 @@
             <th>Price</th>
             <th>Availability</th>
             <th>Category</th>
-            <th>User Type</th>
+            
             <th>Actions</th>
         </tr>
         <%
             for (Product product : productList) {
         %>
         <tr>
-            <td><img src="<%= product.getImage() %>" alt="Product Image" class="product-image"></td> <!-- Mostra l'immagine -->
+            <td><img src="<%= product.getImage() %>" alt="<%= product.getProductName() %>" class="product-image"></td> <!-- Mostra l'immagine -->
             <td><%= product.getProductId() %></td>
             <td><%= product.getProductName() %></td>
             <td><%= product.getBrand() %></td>
             <td><%= product.getPrice() %></td>
             <td><%= product.getAvailability() %></td>
             <td><%= product.getCategory() %></td>
-            <td><%= product.getUserType() %></td>
+            
             <td>
                 <a href="editProductForm.jsp?id=<%= product.getProductId() %>">Edit</a>
-                <a href="DeleteProductServlet?id=<%= product.getProductId() %>" onclick="return confirm('Are you sure?')">Delete</a>
+                <a href="<%= request.getContextPath()%>/DeleteProductServlet?id=<%= product.getProductId() %>" onclick="return confirm('Are you sure?')">Delete</a>
             </td>
         </tr>
         <%
@@ -63,6 +64,6 @@
     
 </div>
 
-<%@ include file="footer.jsp" %>
+<%@ include file="../fragments/footer.jsp" %>
 </body>
 </html>

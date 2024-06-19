@@ -1,8 +1,5 @@
 package control;
 
-import model.Product;
-import model.ProductDao;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
@@ -10,6 +7,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
+
+import model.Product.Product;
+import model.Product.ProductDao;
+
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Paths;
@@ -53,13 +54,13 @@ public class AddProductServlet extends HttpServlet {
         product.setPrice(price);
         product.setAvailability(availability);
         product.setCategory(category);
-        product.setUserType(userType);
         product.setImage(UPLOAD_DIRECTORY + File.separator + fileName);
+        product.setQuantity(0); // Impostare la quantità iniziale a zero
 
         if (productDao.addProduct(product)) {
-            response.sendRedirect("viewProducts.jsp");
+            response.sendRedirect("admin/viewProducts.jsp");
         } else {
-            response.sendRedirect("addProduct.jsp?error=5");
+            response.sendRedirect("admin/addProduct.jsp?error=5");
         }
     }
 }
