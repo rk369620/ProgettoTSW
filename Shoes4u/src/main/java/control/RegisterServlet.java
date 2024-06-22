@@ -8,9 +8,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import model.User;
+import model.User.User;
 
-import model.UserDao;
+import model.User.UserDao;
 
 /**
  * Servlet implementation class registerServlet

@@ -49,6 +49,34 @@ public class UserDao {
 	        return false;
 	    }
 	}
-		
+	 public User getUserByUsername(String username) {
+	        String query = "SELECT * FROM user WHERE username=?";
+	        try (Connection connection = ConnectionPool.getConnection();
+	             PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+
+	            preparedStatement.setString(1, username);
+
+	            ResultSet resultSet = preparedStatement.executeQuery();
+
+	            if (resultSet.next()) {
+	                User user = new User();
+	                user.setId(resultSet.getInt("id"));
+	                user.setUsername(resultSet.getString("username"));
+	                user.setPassword(resultSet.getString("password"));
+	                user.setFirstName(resultSet.getString("firstName"));
+	                user.setLastName(resultSet.getString("lastName"));
+	                user.setEmail(resultSet.getString("email"));
+	                
+	                return user;
+	            }
+
+	        } catch (SQLException e) {
+	            e.printStackTrace();
+	        }
+
+	        return null; 
+	    }
+
+	   
 
 }

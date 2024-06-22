@@ -1,27 +1,25 @@
 package model.Payment;
 
-import java.math.BigDecimal;
+import model.ConnectionPool;
+import model.Order.Order;
+
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-
-import model.ConnectionPool;
+import java.sql.Timestamp;
 
 public class PaymentDao {
+    public void createPayment(Order order, double amount, String status) throws SQLException {
+        String query = "INSERT INTO payment (orderId, paymentDate, amount, status) VALUES (?, ?, ?, ?)";
 
-    public boolean processPayment(int orderId, BigDecimal amount) {
-        try (Connection conn = ConnectionPool.getConnection()) {
-            String sql = "INSERT INTO payment (orderId, amount, status) VALUES (?, ?, ?)";
-            PreparedStatement ps = conn.prepareStatement(sql);
-            ps.setInt(1, orderId);
-            ps.setBigDecimal(2, amount);
-            ps.setString(3, "Completed");
-            int rows = ps.executeUpdate();
-            return rows > 0;
-        } catch (SQLException e) {
-            e.printStackTrace();
-            return false;
+        try (Connection connection = ConnectionPool.getConnection();
+             PreparedStatement stmt = connection.prepareStatement(query)) {
+            stmt.setInt(1, order.getId());
+            stmt.setTimestamp(2, new Timestamp(System.currentTimeMillis()));
+            stmt.setDouble(3, amount);
+            stmt.setString(4, status);
+            stmt.executeUpdate();
         }
     }
 }

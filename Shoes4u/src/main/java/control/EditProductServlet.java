@@ -1,7 +1,7 @@
 package control;
 
-import model.ProductDao;
-import model.Product;
+import model.Product.ProductDao;
+import model.Product.Product;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
@@ -34,11 +34,37 @@ public class EditProductServlet extends HttpServlet {
         String name = request.getParameter("name");
         String brand = request.getParameter("brand");
         double price = Double.parseDouble(request.getParameter("price"));
-        int availability = Integer.parseInt(request.getParameter("availability"));
+        String availability = request.getParameter("availability");
         String category = request.getParameter("category");
-        String userType = request.getParameter("userType");
 
-        // Save the file
+        // Retrieve existing product from database
+        ProductDao productDAO = new ProductDao();
+        Product product = productDAO.getProductById(id);
+
+        if (product == null) {
+            // Handle case where product with given id doesn't exist
+            response.sendRedirect("error.jsp?msg=Product not found");
+            return;
+        }
+
+        // Update product fields only if they are changed
+        if (name != null && !name.isEmpty()) {
+            product.setProductName(name);
+        }
+        if (brand != null && !brand.isEmpty()) {
+            product.setBrand(brand);
+        }
+        if (price > 0) {
+            product.setPrice(price);
+        }
+        if (availability != null) {
+            product.setAvailability(availability);
+        }
+        if (category != null) {
+            product.setCategory(category);
+        }
+
+        // Save the file if a new image is uploaded
         if (fileName != null && !fileName.isEmpty()) {
             File uploadDir = new File(path);
             if (!uploadDir.exists()) {
@@ -53,19 +79,15 @@ public class EditProductServlet extends HttpServlet {
                 while ((read = fileContent.read(bytes)) != -1) {
                     out.write(bytes, 0, read);
                 }
+                product.setImage(fileName); // Update the product image field
             }
         }
 
-        // Update the product information in the database
-        ProductDao productDAO = new ProductDao();
-        Product product = new Product();
-        if (fileName != null && !fileName.isEmpty()) {
-            product.setImage(fileName); // Assuming Product has an image field
-        }
+        // Update product in the database
         productDAO.updateProduct(product);
 
-        // Redirect to the products page
-        response.sendRedirect("editProducts.jsp");
+        // Redirect to the edit product form page
+        response.sendRedirect("admin/viewProducts.jsp");
     }
 
     private String getFileName(Part part) {

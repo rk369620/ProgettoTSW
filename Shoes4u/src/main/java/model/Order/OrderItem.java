@@ -1,17 +1,16 @@
 package model.Order;
 
-import java.math.BigDecimal;
+
 
 public class OrderItem {
     private int id;
     private int orderId;
     private int productId;
     private String productName;
-    private BigDecimal productPrice;
-    private BigDecimal purchasePrice;
+    private double productPrice;
     private int quantity;
 
-    // Getters and setters
+    // Getters and Setters
     public int getId() {
         return id;
     }
@@ -44,20 +43,12 @@ public class OrderItem {
         this.productName = productName;
     }
 
-    public BigDecimal getProductPrice() {
+    public double getProductPrice() {
         return productPrice;
     }
 
-    public void setProductPrice(BigDecimal productPrice) {
-        this.productPrice = productPrice;
-    }
-
-    public BigDecimal getPurchasePrice() {
-        return purchasePrice;
-    }
-
-    public void setPurchasePrice(BigDecimal purchasePrice) {
-        this.purchasePrice = purchasePrice;
+    public void setProductPrice(double d) {
+        this.productPrice = d;
     }
 
     public int getQuantity() {

@@ -1,13 +1,13 @@
 package model.Payment;
 
-import java.math.BigDecimal;
+
 import java.sql.Timestamp;
 
 public class Payment {
     private int id;
     private int orderId;
     private Timestamp paymentDate;
-    private BigDecimal amount;
+    private double amount;
     private String status;
 
     // Getters and setters
@@ -35,11 +35,11 @@ public class Payment {
         this.paymentDate = paymentDate;
     }
 
-    public BigDecimal getAmount() {
+    public double getAmount() {
         return amount;
     }
 
-    public void setAmount(BigDecimal amount) {
+    public void setAmount(double amount) {
         this.amount = amount;
     }
 

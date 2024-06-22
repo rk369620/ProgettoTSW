@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import model.ProductDao;
+import model.Product.ProductDao;
 
 @WebServlet("/DeleteProductServlet")
 public class DeleteProductServlet extends HttpServlet {
@@ -18,9 +18,9 @@ public class DeleteProductServlet extends HttpServlet {
         int id = Integer.parseInt(request.getParameter("id"));
         
         if (productDao.deleteProduct(id)) {
-            response.sendRedirect("viewProducts.jsp?success=1");
+            response.sendRedirect("admin/viewProducts.jsp?success=1");
         } else {
-            response.sendRedirect("viewProducts.jsp?error=1");
+            response.sendRedirect("admin/viewProducts.jsp?error=1");
         }
     }
 }

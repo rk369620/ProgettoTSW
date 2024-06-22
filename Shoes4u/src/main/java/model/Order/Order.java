@@ -1,17 +1,30 @@
 package model.Order;
 
-import java.math.BigDecimal;
 import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Order {
     private int id;
     private int userId;
+    private String customer; 
     private Timestamp orderDate;
-    private BigDecimal totalPrice;
+    private double totalPrice;
     private List<OrderItem> orderItems;
 
-    // Getters and setters
+    // Costruttore e altri metodi della classe
+
+    public List<OrderItem> getOrderItems() {
+        if (orderItems == null) {
+            orderItems = new ArrayList<>();
+        }
+        return orderItems;
+    }
+
+    public void setOrderItems(List<OrderItem> orderItems) {
+        this.orderItems = orderItems;
+    }
+
     public int getId() {
         return id;
     }
@@ -28,6 +41,14 @@ public class Order {
         this.userId = userId;
     }
 
+    public String getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(String customer) {
+        this.customer = customer;
+    }
+
     public Timestamp getOrderDate() {
         return orderDate;
     }
@@ -36,19 +57,11 @@ public class Order {
         this.orderDate = orderDate;
     }
 
-    public BigDecimal getTotalPrice() {
+    public double getTotalPrice() {
         return totalPrice;
     }
 
-    public void setTotalPrice(BigDecimal totalPrice) {
+    public void setTotalPrice(double totalPrice) {
         this.totalPrice = totalPrice;
-    }
-
-    public List<OrderItem> getOrderItems() {
-        return orderItems;
-    }
-
-    public void setOrderItems(List<OrderItem> orderItems) {
-        this.orderItems = orderItems;
     }
 }

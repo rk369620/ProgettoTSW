@@ -1,18 +1,20 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+   
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Shoes4U</title>
-<link rel="stylesheet" href="css/styles.css">
-<link rel="stylesheet" href="css/header.css">
-<link rel="stylesheet" href="css/footer.css">
+<link rel="stylesheet" href="styles/styles.css">
+<link rel="stylesheet" href="styles/header.css">
+<link rel="stylesheet" href="styles/footer.css">
+
 
 </head>
 <body>
-<%@ include file="header.jsp" %>
+<%@ include file="fragments/header.jsp" %>
 
 <main>
     <div class="main-image">
@@ -24,6 +26,6 @@
     </div>
 </main>
 
-<%@ include file="footer.jsp" %>
+<%@ include file="fragments/footer.jsp" %>
 </body>
 </html>
