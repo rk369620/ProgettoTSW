@@ -32,7 +32,7 @@
         </select>
     </div>
 
-    <!-- Products Container -->
+    
     <div id="productsContainer" class="products-container">
         <%
             ProductDao productDao = new ProductDao();

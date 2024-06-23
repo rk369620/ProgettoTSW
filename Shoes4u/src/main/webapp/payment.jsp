@@ -56,25 +56,26 @@
     </div>
 
     <div class="payment-form">
-        <center><h2>Payment Details</h2></center>
-        <form action="ProcessPaymentServlet" method="post">
-            <input type="hidden" name="amount" value="<%= order.getTotalPrice() %>">
-            
-            <label for="cardNumber">Card Number:</label>
-            <input type="text" id="cardNumber" name="cardNumber" required>
+    <center><h2>Payment Details</h2></center>
+    <form action="ProcessPaymentServlet" method="post" onsubmit="return validatePaymentForm()">
+        <input type="hidden" name="amount" value="<%= order.getTotalPrice() %>">
+        
+        <label for="cardNumber">Card Number:</label>
+        <input type="text" id="cardNumber" name="cardNumber" required>
 
-            <label for="expiryDate">Expiry Date:</label>
-            <input type="text" id="expiryDate" name="expiryDate" placeholder="MM/YYYY" required>
+        <label for="expiryDate">Expiry Date:</label>
+        <input type="text" id="expiryDate" name="expiryDate" placeholder="MM/YYYY" required>
 
-            <label for="cvv">CVV:</label>
-            <input type="text" id="cvv" name="cvv" required>
+        <label for="cvv">CVV:</label>
+        <input type="text" id="cvv" name="cvv" required>
 
-            <label for="billingAddress">Billing Address:</label>
-            <input type="text" id="billingAddress" name="billingAddress">
+        <label for="billingAddress">Billing Address:</label>
+        <input type="text" id="billingAddress" name="billingAddress">
 
-            <button type="submit">Pay Now</button>
-        </form>
-    </div>
+        <button type="submit">Pay Now</button>
+    </form>
+</div>
+
 
     <%@ include file="fragments/footer.jsp" %>
 </body>

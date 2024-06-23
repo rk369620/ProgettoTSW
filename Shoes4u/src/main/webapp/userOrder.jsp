@@ -1,6 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="model.Order.Order" %>
 <%@ page import="java.util.List" %>
+<% 
+HttpSession ss= request.getSession(false); 
+if (ss== null || ss.getAttribute("user") == null) {
+    
+    response.sendRedirect("login.jsp");
+    return;
+}%>
 
 <!DOCTYPE html>
 <html>
@@ -9,6 +16,8 @@
     <title>My Orders</title>
     <link rel="stylesheet" href="styles/header.css">
     <link rel="stylesheet" href="styles/viewOrders.css">
+        
+    
         <link rel="stylesheet" href="styles/footer.css">
     
 </head>

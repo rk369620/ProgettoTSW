@@ -51,24 +51,24 @@ public class ProcessPaymentServlet extends HttpServlet {
 
         boolean paymentSuccessful = processPayment(cardNumber, expiryDate, cvv, amount);
 
-        try {
-            PaymentDao paymentDao = new PaymentDao();
-            paymentDao.createPayment(order, amount, "Paid");
+        if (paymentSuccessful) {
+            try {
+                PaymentDao paymentDao = new PaymentDao();
+                paymentDao.createPayment(order, amount, "Paid");
 
-            // Salva l'ID dell'ordine nella sessione per accesso successivo
-            session.setAttribute("orderId", order.getId());
-
-            session.removeAttribute("order");
-
-            response.sendRedirect("order_confirmation.jsp");
-        } catch (SQLException e) {
-            e.printStackTrace();
-            response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Error processing payment");
+                session.removeAttribute("order");
+                session.setAttribute("paymentSuccess", true); 
+                response.sendRedirect("order_confirmation.jsp");
+            } catch (SQLException e) {
+                e.printStackTrace();
+                response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Error processing payment");
+            }
+        } else {
+            response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Payment failed. Please try again.");
         }
     }
 
     private boolean processPayment(String cardNumber, String expiryDate, String cvv, double amount) {
-        Random random = new Random();
-        return random.nextBoolean();
+        return true;
     }
 }

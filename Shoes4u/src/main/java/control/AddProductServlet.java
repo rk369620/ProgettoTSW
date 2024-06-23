@@ -34,7 +34,7 @@ public class AddProductServlet extends HttpServlet {
         try {
             price = Double.parseDouble(priceStr);
         } catch (NumberFormatException e) {
-            response.sendRedirect("addProduct.jsp?error=2");
+            response.sendRedirect("admin/addProduct.jsp?error=2");
             return;
         }
 

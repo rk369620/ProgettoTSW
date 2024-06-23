@@ -9,22 +9,17 @@
 <!DOCTYPE html>
 <html>
 <head>
-
     <meta charset="UTF-8">
     <title>Add Product</title>
-     <link rel="stylesheet" href="<%= request.getContextPath()%>/styles/header.css">
- 
-
-<link rel="stylesheet" href="<%= request.getContextPath()%>/styles/addProduct.css">
-
-<link rel="stylesheet" href="<%= request.getContextPath()%>/styles/footer.css">
-
-<script src="scripts/login.js"></script>
+    <link rel="stylesheet" href="<%= request.getContextPath()%>/styles/header.css">
+    <link rel="stylesheet" href="<%= request.getContextPath()%>/styles/addProduct.css">
+    <link rel="stylesheet" href="<%= request.getContextPath()%>/styles/footer.css">
+    <script src="<%= request.getContextPath()%>/scripts/addProducts.js"></script>
 </head>
 <body>
-<%@ include file="../fragments/header.jsp" %>
+    <%@ include file="../fragments/header.jsp" %>
     <center><h1>Add Product</h1></center>
-    <form action="<%= request.getContextPath()%>/AddProductServlet" method="post" enctype="multipart/form-data">
+    <form action="<%= request.getContextPath()%>/AddProductServlet" method="post" onsubmit="return validateForm()" enctype="multipart/form-data">
         <label for="productName">Product Name:</label>
         <input type="text" id="productName" name="productName"><br>
         
@@ -40,13 +35,12 @@
         <label for="category">Category:</label>
         <input type="text" id="category" name="category"><br>
         
-        
         <label for="image">Product Image:</label>
         <input type="file" id="image" name="image"><br>
         
         <button type="submit">Add Product</button>
     </form>
    
-<%@ include file="../fragments/footer.jsp" %>
+    <%@ include file="../fragments/footer.jsp" %>
 </body>
 </html>
