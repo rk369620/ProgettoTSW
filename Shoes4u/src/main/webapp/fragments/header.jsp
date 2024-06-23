@@ -12,7 +12,7 @@
 
 <header>
     <div class="logo">
-        <h1>Shoes4u</h1>
+        <h1><Marquee>Shoes4u</Marquee></h1>
     </div>
     <nav>
         <ul>
