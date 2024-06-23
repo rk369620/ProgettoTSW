@@ -1,4 +1,4 @@
-/* admin.css */
+
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #f2f5f8;
@@ -33,6 +33,7 @@ ul li {
 }
 
 ul li a {
+    display: inline-block;
     text-decoration: none;
     color: #1E90FF;
     font-size: 18px;
@@ -46,3 +47,4 @@ ul li a:hover {
     background-color: #1E90FF;
     color: white;
 }
+

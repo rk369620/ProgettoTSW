@@ -6,7 +6,7 @@ import java.sql.SQLException;
 
 public class ConnectionPool{
 	
-	private static final String URL="jdbc:mysql://localhost:3306/tswproject";
+	private static final String URL="jdbc:mysql://localhost:3306/tswproject1";
 	private static final String Username="root";
 	private static final String Password="123456";
 

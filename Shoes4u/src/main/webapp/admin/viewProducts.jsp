@@ -18,6 +18,8 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>View Products</title>
+ <link rel="stylesheet" href="<%= request.getContextPath()%>/styles/header.css">
+ 
 
 <link rel="stylesheet" href="<%= request.getContextPath()%>/styles/viewProducts.css">
 <link rel="stylesheet" href="<%= request.getContextPath()%>/styles/footer.css">

@@ -12,7 +12,8 @@
 <meta charset="ISO-8859-1">
 <title>Admin Dashboard</title>
 <link rel="stylesheet" href="<%= request.getContextPath() %>/styles/header.css">
-<link rel="stylesheet" href="<%= request.getContextPath()%> /styles/admin.css">
+<link rel="stylesheet" href="<%= request.getContextPath() %>/styles/adminn.css">
+
 <link rel="stylesheet" href="<%= request.getContextPath()%>/styles/footer.css">
 </head>
 <body>

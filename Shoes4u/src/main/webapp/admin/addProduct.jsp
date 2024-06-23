@@ -12,6 +12,9 @@
 
     <meta charset="UTF-8">
     <title>Add Product</title>
+     <link rel="stylesheet" href="<%= request.getContextPath()%>/styles/header.css">
+ 
+
 <link rel="stylesheet" href="<%= request.getContextPath()%>/styles/addProduct.css">
 
 <link rel="stylesheet" href="<%= request.getContextPath()%>/styles/footer.css">

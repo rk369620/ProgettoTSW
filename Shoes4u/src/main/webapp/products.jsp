@@ -10,7 +10,9 @@
     <meta charset="UTF-8">
     <title>Product Page</title>
     <link rel="stylesheet" href="styles/header.css">
-    <link rel="stylesheet" href="styles/products.css">
+    <link rel="stylesheet" href="styles/pro.css">
+    
+    <link rel="stylesheet" href="styles/footer.css">
     
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="scripts/script.js"></script>
@@ -20,7 +22,7 @@
 
     <h1>Product Page</h1>
 
-    <!-- Category Dropdown -->
+   
     <div class="category-dropdown-container">
         <select id="categoryDropdown" class="category-dropdown">
             <option value="all">All Products</option>
@@ -34,7 +36,7 @@
     <div id="productsContainer" class="products-container">
         <%
             ProductDao productDao = new ProductDao();
-            List<Product> productList = productDao.getAllProducts(); // Fetch all products
+            List<Product> productList = productDao.getAllProducts(); 
             for (Product product : productList) {
         %>
             <div class="product-card" data-category="<%= product.getCategory() %>">
@@ -43,9 +45,10 @@
                 </div>
                 <h2><%= product.getProductName() %></h2>
                 <p><%= product.getBrand() %></p>
-                <p class="price">$<%= product.getPrice() %></p>
+                <p class="price">€
+                <%= product.getPrice() %></p>
                 <div class="product-actions">
-                    <!-- Form for adding to cart -->
+                   
                     <form action="CartServlet" method="post">
                         <input type="hidden" name="productId" value="<%= product.getProductId() %>">
                         <button type="submit" class="btn-add-to-cart">Add to Cart</button>
