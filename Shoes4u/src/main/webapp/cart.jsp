@@ -96,7 +96,7 @@
 </head>
 <body>
     <%@ include file="fragments/header.jsp" %>
-    <h1>Your Cart</h1>
+   <center> <h1>Your Cart</h1></center>
     <div class="cart-container">
         <% if (cartItems.isEmpty()) { %>
             <p>Your cart is empty.</p>
@@ -123,14 +123,14 @@
             <div class="total-cart-price">
                 <h3>Total Cart Price:€ <%= totalCartPrice %></h3>
             </div>
-            <div class="cart-actions">
-                <div class="continue-shopping">
-                    <a href="products.jsp">Continue Shopping</a>
-                </div>
-                <form action="CheckoutServlet" method="post">
-                    <button type="submit" class="btn-proceed-to-checkout">Proceed to Checkout</button>
-                </form>
-            </div>
+           <div class="cart-actions">
+    <div class="continue-shopping">
+        <a href="products.jsp">Continue Shopping</a>
+    </div>
+    <form action="CheckoutServlet" method="post">
+        <button type="submit" class="btn-proceed-to-checkout">Proceed to Checkout</button>
+    </form>
+</div>
         <% } %>
     </div>
     <%@ include file="fragments/footer.jsp" %>

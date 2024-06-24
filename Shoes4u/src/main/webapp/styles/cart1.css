@@ -1,57 +1,60 @@
-/* cart1.css */
-
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f2f5f8;
+/* Reset generale */
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
-h1 {
-    text-align: center;
-    margin-top: 20px;
-    color: #333;
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+}
+
+.main-content {
+    flex: 1;
+    padding: 20px;
 }
 
 .cart-container {
-    max-width: 800px;
-    margin: 20px auto;
-    background-color: #fff;
+    max-width: 1200px;
+    margin: 0 auto;
     padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    overflow-y: auto; /* Aggiunge uno scroll verticale se necessario */
-    max-height: calc(100vh - 200px); /* Limita l'altezza del contenitore per lasciare spazio per il footer */
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    overflow-y: auto; /* Aggiungi lo scrolling verticale quando necessario */
+    max-height: calc(100vh - 200px); /* Assicurati che il contenitore non superi l'altezza della finestra */
 }
 
 .cart-item {
     display: flex;
     align-items: center;
-    margin-bottom: 20px;
-    padding: 10px;
-    border-bottom: 1px solid #ccc;
+    border-bottom: 1px solid #ddd;
+    padding: 10px 0;
 }
 
 .cart-item img {
     max-width: 100px;
     margin-right: 20px;
-    border-radius: 8px;
 }
 
 .cart-item h2 {
+    flex: 1;
     font-size: 18px;
-    margin: 5px 0;
-    color: #333;
+    margin-bottom: 5px; /* Aggiungi margine inferiore per separare i titoli */
 }
 
 .cart-item p {
-    margin: 5px 0;
-    color: #666;
+    margin: 0 10px;
 }
 
-.cart-item .price {
-    font-size: 16px;
-    margin-right: 10px;
+.price {
+    color: #333;
+    font-weight: bold;
 }
 
 .quantity-control {
@@ -59,54 +62,87 @@ h1 {
     align-items: center;
 }
 
-.quantity-control button {
-    background-color: #1E90FF;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-    padding: 5px 10px;
-    border-radius: 5px;
-    margin: 0 5px;
-}
-
 .quantity-input {
     width: 50px;
     text-align: center;
-    font-size: 16px;
-    padding: 5px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    margin: 0 10px;
 }
 
-.item-total-price {
-    font-size: 16px;
-    margin-left: auto;
+.btn-decrement, .btn-increment {
+    background-color: #ddd;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.btn-remove {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    margin-left: 20px;
 }
 
 .total-cart-price {
-    margin-top: 20px;
     text-align: right;
+    font-size: 18px;
+    margin-top: 20px;
+    font-weight: bold;
 }
 
-.total-cart-price h3 {
-    font-size: 24px;
-    color: #333;
+/* Aggiungi questa parte alla fine del tuo file CSS */
+
+.cart-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centra verticalmente all'interno del carrello */
+    margin-top: 20px;
 }
 
 .continue-shopping {
-    margin-top: 20px;
-    text-align: center;
+    margin-bottom: 10px; /* Aggiungi spazio sotto il link "Continue Shopping" */
 }
 
-.continue-shopping a {
-    background-color: #1E90FF;
-    color: #fff;
-    text-decoration: none;
+.btn-proceed-to-checkout {
+    background-color: #28a745;
+    color: white;
+    border: none;
     padding: 10px 20px;
-    border-radius: 5px;
-    transition: background-color 0.3s, color 0.3s;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%; /* Occupa tutta la larghezza disponibile */
+    max-width: 200px; /* Limita la larghezza massima per evitare di espandersi troppo */
+    text-align: center;
+    margin-top: 10px; /* Aggiungi spazio sopra il pulsante "Proceed to Checkout" */
 }
 
-.continue-shopping a:hover {
-    background-color: #0e69c3;
+.footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    width: 100%;
+    margin-top: auto;
+}
+
+/* Media query per dispositivi di larghezza massima di 768px */
+@media (max-width: 768px) {
+    .cart-item {
+        flex-direction: column; /* Visualizza gli elementi del carrello in colonna su schermi più piccoli */
+        text-align: center;
+    }
+
+    .cart-item img {
+        margin-bottom: 10px;
+    }
+
+    .quantity-control {
+        margin-top: 10px;
+    }
+
+    .btn-remove {
+        margin-left: 0; /* Rimuovi il margine sinistro per il pulsante "Rimuovi" su schermi più piccoli */
+        margin-top: 10px; /* Aggiungi spazio superiore per separare i pulsanti */
+    }
 }

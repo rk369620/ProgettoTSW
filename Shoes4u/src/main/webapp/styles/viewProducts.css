@@ -35,7 +35,7 @@ table, th, td {
 th, td {
     padding: 12px;
     text-align: left;
-    vertical-align: middle; /* Ensure the content is vertically aligned */
+    vertical-align: middle;
 }
 
 th {
@@ -52,11 +52,11 @@ tr:hover {
 }
 
 .product-image {
-    width: 100px; /* Ensure the images have a fixed width */
-    height: auto; /* Maintain the aspect ratio */
+    width: 100px;
+    height: auto; 
     border-radius: 8px;
-    display: block; /* Ensure the images are displayed as block elements */
-    margin: 0 auto; /* Center the images horizontally */
+    display: block; 
+    margin: 0 auto; 
 }
 
 a {
@@ -66,9 +66,33 @@ a {
     border: 2px solid #1E90FF;
     border-radius: 8px;
     transition: background-color 0.3s, color 0.3s;
+    display: inline-block; 
 }
 
 a:hover {
     background-color: #1E90FF;
     color: white;
+}
+
+
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+
+    h1 {
+        font-size: 28px;
+    }
+
+    table {
+        font-size: 14px;
+    }
+
+    .product-image {
+        width: 80px;
+    }
+
+    a {
+        padding: 4px 8px;
+    }
 }
